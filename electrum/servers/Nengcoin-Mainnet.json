@@ -1,0 +1,20 @@
+{
+    "electrum.shorelinecrypto.com": {
+        "pruning": "-",
+        "s": "10002",
+        "t": "10001",
+        "version": "1.4"
+    },
+    "electrum1.mooo.com": {
+        "pruning": "-",
+        "s": "10002",
+        "t": "10001",
+        "version": "1.4"
+    },
+    "electrum2.mooo.com": {
+        "pruning": "-",
+        "s": "10002",
+        "t": "10001",
+        "version": "1.4"
+    }
+} 
