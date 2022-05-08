@@ -15,7 +15,7 @@ StartupWMClass=electrum
 Terminal=false
 Type=Application
 MimeType=x-scheme-handler/bitcoin;
-Actions=Bitcoin-Testnet;Namecoin;Crowncoin;Nengcoin;
+Actions=Bitcoin-Testnet;Namecoin;Crowncoin;Cheetahcoin;
 
 [Desktop Action Bitcoin-Testnet]
 Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum --network Bitcoin-Testnet %u"
@@ -29,6 +29,6 @@ Name=Launch Namecoin Wallet
 Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum --network Crowncoin %u"
 Name=Launch Crowncoin Wallet
 
-[Desktop Action Nengcoin]
-Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum --network Nengcoin %u"
-Name=Launch Nengcoin Wallet
+[Desktop Action Cheetahcoin]
+Exec=sh -c "PATH=\"\\$HOME/.local/bin:\\$PATH\"; electrum --network Cheetahcoin %u"
+Name=Launch Cheetahcoin Wallet

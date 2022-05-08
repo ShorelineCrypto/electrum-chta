@@ -42,16 +42,16 @@ networks = {
     'Donu-Mainnet': DonuMainnet,
     'Namecoin': NamecoinMainnet,
     'Namecoin-Mainnet': NamecoinMainnet,
-    'Nengcoin': NengcoinMainnet,
-    'Nengcoin-Mainnet': NengcoinMainnet,
+    'Cheetahcoin': CheetahcoinMainnet,
+    'Cheetahcoin-Mainnet': CheetahcoinMainnet,
 }
 
 net = networks['Bitcoin']
 
-def select_network(network='Nengcoin'):
+def select_network(network='Cheetahcoin'):
     if not network in networks:
         raise Exception('Invalid Network. Available: {}'.format(
             list(networks.keys())))
     global net
-    net = networks.get(network, 'Nengcoin')
+    net = networks.get(network, 'Cheetahcoin')
     return

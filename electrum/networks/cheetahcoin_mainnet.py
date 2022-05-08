@@ -6,21 +6,21 @@ from .abstract_network import AbstractNet
 from .auxpow_mixin import AuxPowMixin
 from .stake_mixin import StakeMixin
 
-class NengcoinMainnet(AbstractNet, StakeMixin):
+class CheetahcoinMainnet(AbstractNet, StakeMixin):
 
-    NAME = 'Nengcoin'
-    NAME_LOWER = 'nengcoin'
-    SHORT_CODE = 'NENG'
-    DATA_DIR = 'nengcoin'
-    OPEN_ALIAS_PREFIX = 'neng'
-    PAYMENT_URI_SCHEME = 'nengcoin'
-    PAYMENT_REQUEST_PKI_TYPE = "dnssec+neng"
-    APPLICATION_PAYMENT_REQUEST_TYPE = 'application/nengcoin-paymentrequest'
-    APPLICATION_PAYMENT_TYPE = 'application/nengcoin-payment'
-    APPLICATION_PAYMENT_ACK_TYPE = 'application/nengcoin-paymentack'
-    BASE_UNITS = {'NENG': 8, 'mNENG': 5, 'uNENG': 2, 'swartz': 0}
+    NAME = 'Cheetahcoin'
+    NAME_LOWER = 'cheetahcoin'
+    SHORT_CODE = 'CHTA'
+    DATA_DIR = 'cheetahcoin'
+    OPEN_ALIAS_PREFIX = 'chta'
+    PAYMENT_URI_SCHEME = 'cheetahcoin'
+    PAYMENT_REQUEST_PKI_TYPE = "dnssec+chta"
+    APPLICATION_PAYMENT_REQUEST_TYPE = 'application/cheetahcoin-paymentrequest'
+    APPLICATION_PAYMENT_TYPE = 'application/cheetahcoin-payment'
+    APPLICATION_PAYMENT_ACK_TYPE = 'application/cheetahcoin-paymentack'
+    BASE_UNITS = {'CHTA': 8, 'mCHTA': 5, 'uCHTA': 2, 'swartz': 0}
     BASE_UNITS_INVERSE = inv_dict(BASE_UNITS)
-    BASE_UNITS_LIST = ['NENG', 'mNENG', 'uNENG', 'swartz']
+    BASE_UNITS_LIST = ['CHTA', 'mCHTA', 'uCHTA', 'swartz']
     TESTNET = False
 
     WIF_PREFIX = 0xb0
@@ -39,8 +39,8 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
     GENESIS = "14683bb988bcb69c74276df315c8de108d990fcff07483d5f2a044a3b4a592d8"
 
     DEFAULT_PORTS = {'t': '10001', 's': '10002'}
-    DEFAULT_SERVERS = read_json('servers/Nengcoin-Mainnet.json', {})
-    CHECKPOINTS = read_json('checkpoints/Nengcoin-Mainnet.json', [])
+    DEFAULT_SERVERS = read_json('servers/Cheetahcoin-Mainnet.json', {})
+    CHECKPOINTS = read_json('checkpoints/Cheetahcoin-Mainnet.json', [])
 
     LN_REALM_BYTE = 0
     LN_DNS_SEEDS = []
@@ -48,16 +48,16 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
     COINBASE_MATURITY = 100
     COIN = 100000000
     TOTAL_COIN_SUPPLY_LIMIT = 84000000000
-    SIGNED_MESSAGE_PREFIX = b"\x18Nengcoin Signed Message:\n"
+    SIGNED_MESSAGE_PREFIX = b"\x18Cheetahcoin Signed Message:\n"
 
-    DECIMAL_POINT_DEFAULT = 8 # NENG
+    DECIMAL_POINT_DEFAULT = 8 # CHTA
     
     TARGET_TIMESPAN = int(1 * 24 * 60 * 60)
     TARGET_SPACING = int(1 * 60)
     INTERVAL = int(TARGET_TIMESPAN / TARGET_SPACING)
 
     BLOCK_EXPLORERS = {
-        'nengexplorer.mooo.com': ('http://nengexplorer.mooo.com:3001/', {'tx': '/tx/', 'addr': '/address/'}),
+        'chtaexplorer.mooo.com': ('http://chtaexplorer.mooo.com:3001/', {'tx': '/tx/', 'addr': '/address/'}),
     }
 
 
@@ -67,6 +67,6 @@ class NengcoinMainnet(AbstractNet, StakeMixin):
         if index == -1:
             return cls.MAX_TARGET
 
-        # NENG Blockchain is randomSpike on top of scrypt so that we dont have the info needed to
+        # CHTA Blockchain is randomSpike on top of scrypt so that we dont have the info needed to
         # calculate the targets required
         return 0
