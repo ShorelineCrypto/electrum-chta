@@ -23,8 +23,8 @@ class CheetahcoinMainnet(AbstractNet, StakeMixin):
     BASE_UNITS_LIST = ['CHTA', 'mCHTA', 'uCHTA', 'swartz']
     TESTNET = False
 
-    WIF_PREFIX = 0xb0
-    ADDRTYPE_P2PKH = 53
+    WIF_PREFIX = 0x80
+    ADDRTYPE_P2PKH = 28
     ADDRTYPE_P2SH = 5
     XPRV_HEADERS = {
         'standard': 0x0488ade4,
@@ -34,11 +34,11 @@ class CheetahcoinMainnet(AbstractNet, StakeMixin):
         'standard': 0x0488b21e,
     }
     XPUB_HEADERS_INV = inv_dict(XPUB_HEADERS)
-    BIP44_COIN_TYPE = 681
+    BIP44_COIN_TYPE = 682
 
-    GENESIS = "14683bb988bcb69c74276df315c8de108d990fcff07483d5f2a044a3b4a592d8"
+    GENESIS = "0000000090ae6bab6c2abd99179a7632b84f286f876def641dd35c3221eee7be"
 
-    DEFAULT_PORTS = {'t': '10001', 's': '10002'}
+    DEFAULT_PORTS = {'t': '10007', 's': '10008'}
     DEFAULT_SERVERS = read_json('servers/Cheetahcoin-Mainnet.json', {})
     CHECKPOINTS = read_json('checkpoints/Cheetahcoin-Mainnet.json', [])
 
@@ -47,26 +47,27 @@ class CheetahcoinMainnet(AbstractNet, StakeMixin):
 
     COINBASE_MATURITY = 100
     COIN = 100000000
-    TOTAL_COIN_SUPPLY_LIMIT = 84000000000
+    TOTAL_COIN_SUPPLY_LIMIT = 21000000000
     SIGNED_MESSAGE_PREFIX = b"\x18Cheetahcoin Signed Message:\n"
 
     DECIMAL_POINT_DEFAULT = 8 # CHTA
     
     TARGET_TIMESPAN = int(1 * 24 * 60 * 60)
-    TARGET_SPACING = int(1 * 60)
+    TARGET_SPACING = int(2 * 60)
     INTERVAL = int(TARGET_TIMESPAN / TARGET_SPACING)
 
     BLOCK_EXPLORERS = {
-        'chtaexplorer.mooo.com': ('http://chtaexplorer.mooo.com:3001/', {'tx': '/tx/', 'addr': '/address/'}),
+        'chtaexplorer.mooo.com': ('http://chtaexplorer.mooo.com:3002/', {'tx': '/tx/', 'addr': '/address/'}),
+        'chta.mining4people.com': ('https://chta.mining4people.com/', {'tx': '/tx/', 'addr': '/address/'}),
     }
 
 
     @classmethod
     def get_target(cls, height: int, blockchain) -> int:
-        index = height // 1440 - 1
+        index = height // 720 - 1
         if index == -1:
             return cls.MAX_TARGET
 
-        # CHTA Blockchain is randomSpike on top of scrypt so that we dont have the info needed to
+        # CHTA Blockchain is randomSpike on top of sha256 so that we dont have the info needed to
         # calculate the targets required
         return 0
