@@ -57,8 +57,7 @@ class CheetahcoinMainnet(AbstractNet, StakeMixin):
     INTERVAL = int(TARGET_TIMESPAN / TARGET_SPACING)
 
     BLOCK_EXPLORERS = {
-        'chtaexplorer.mooo.com': ('http://chtaexplorer.mooo.com:3002/', {'tx': '/tx/', 'addr': '/address/'}),
-        'chta.mining4people.com': ('https://chta.mining4people.com/', {'tx': '/tx/', 'addr': '/address/'}),
+        'chtaexplorer.mooo.com': ('http://chtaexplorer.mooo.com:3002', {'tx': '/tx/', 'addr': '/address/'}),
     }
 
 
