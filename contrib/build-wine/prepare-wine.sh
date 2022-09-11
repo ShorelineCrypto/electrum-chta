@@ -65,9 +65,9 @@ $PYTHON -m pip install --no-dependencies --no-warn-script-location -r "$CONTRIB"
 info "Installing dependencies specific to binaries."
 $PYTHON -m pip install --no-dependencies --no-warn-script-location -r "$CONTRIB"/deterministic-build/requirements-binaries.txt
 
-info "Installing Algo Module"
-download_if_not_exist "$CACHEDIR/$ALGOMODULE_FILENAME" "$ALGOMODULE_URL"
-$PYTHON -m pip install "$CACHEDIR/$ALGOMODULE_FILENAME"
+info "Skipping Algo Module"
+# download_if_not_exist "$CACHEDIR/$ALGOMODULE_FILENAME" "$ALGOMODULE_URL"
+# $PYTHON -m pip install "$CACHEDIR/$ALGOMODULE_FILENAME"
 
 info "Installing ZBar."
 download_if_not_exist "$CACHEDIR/$ZBAR_FILENAME" "$ZBAR_URL"
@@ -125,6 +125,7 @@ info "Building PyInstaller."
     git remote add origin $PYINSTALLER_REPO
     git fetch --depth 1 origin $PYINSTALLER_COMMIT
     git checkout -b pinned FETCH_HEAD
+    git config --global --add safe.directory '*' 
     rm -fv PyInstaller/bootloader/Windows-*/run*.exe || true
     # add reproducible randomness. this ensures we build a different bootloader for each commit.
     # if we built the same one for all releases, that might also get anti-virus false positives
