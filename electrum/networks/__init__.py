@@ -6,6 +6,6 @@ from .bitcoin_simnet import BitcoinSimnet
 from .crowncoin_mainnet import CrowncoinMainnet
 from .donu_mainnet import DonuMainnet
 from .namecoin_mainnet import NamecoinMainnet
-from .nengcoin_mainnet import NengcoinMainnet
+from .cheetahcoin_mainnet import CheetahcoinMainnet
 from .auxpow_mixin import AuxPowMixin
 from .stake_mixin import StakeMixin
